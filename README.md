@@ -4,7 +4,7 @@
 
 #### This is a demo Android app, written in Kotlin, to fulfill the requirements of the following prompt:
 
->Our Product team want to experiment with the order of information in a user's profile, to see if first impressions are
+> Our Product team want to experiment with the order of information in a user's profile, to see if first impressions are
 important. They are looking to answer questions like: Should the profile photo be first? What if we placed the about me text
 higher? Is the school important for a College aged demographic?
 The task requires displaying a single profile at a time with the profile fields in the order defined by the configuration. There
@@ -12,7 +12,8 @@ should also be a button that allows you to navigate to the next user.
 Don't worry too much about how it looks for now, the design team haven't had a chance to look at it yet. Feel free to adjust
 the layout as you see fit.
 
-
+## Demo
+<img src="https://user-images.githubusercontent.com/23622104/131268101-a863117b-85bd-4c41-aaed-49b6d1d5a4b6.gif" width="360" height = "780">
 
 
 ## Architecture
