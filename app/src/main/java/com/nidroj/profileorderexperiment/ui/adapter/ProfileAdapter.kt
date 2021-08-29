@@ -74,7 +74,7 @@ open class ProfileAdapter(context: Context) : RecyclerView.Adapter<ProfileAdapte
             header.text = sentenceCaseHeader
             info.value?.let {
                 infoValue.visibility = View.VISIBLE
-                infoValue.text = it;
+                infoValue.text = it
             }
         }
     }

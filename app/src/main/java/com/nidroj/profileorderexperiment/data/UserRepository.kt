@@ -48,6 +48,7 @@ class UserRepository(private val api: HingeApi) {
             db = initializeDB(context)
 
             CoroutineScope(Dispatchers.IO).launch {
+                Timber.d("Inserting match")
                 db.matchUserDao().insert(match)
             }
         }
@@ -57,21 +58,24 @@ class UserRepository(private val api: HingeApi) {
             db = initializeDB(context)
 
             CoroutineScope(Dispatchers.IO).launch {
+                Timber.d("Deleting matches")
                 db.clearAllTables()
             }
         }
 
         //gets all matches in database
         fun getMatches(context: Context): LiveData<List<MatchedUser>?> {
-            db = initializeDB(context)
+            Timber.d("Getting all matches")
 
+            db = initializeDB(context)
             return db.matchUserDao().all
         }
 
         //gets the amount of matched users that have a photo
         fun getPhotoCount(context: Context): LiveData<Int?> {
-            db = initializeDB(context)
+            Timber.d("Getting photo count")
 
+            db = initializeDB(context)
             return db.matchUserDao().getPhotoCount()
         }
 
@@ -79,15 +83,17 @@ class UserRepository(private val api: HingeApi) {
         * NOTE: if there is more than one school with the highest count,
         * only one will be shown.*/
         fun getTopSchool(context: Context): LiveData<String?> {
-            db = initializeDB(context)
+            Timber.d("Getting top school")
 
+            db = initializeDB(context)
             return db.matchUserDao().getTopSchool()
         }
 
         // Gets the longest amount of time spent the user spent looking at a profile
         fun getLongestInteractionTime(context: Context): LiveData<Long?> {
-            db = initializeDB(context)
+            Timber.d("Getting longest engagement time")
 
+            db = initializeDB(context)
             return db.matchUserDao().getLongestInteractionTime()
         }
     }

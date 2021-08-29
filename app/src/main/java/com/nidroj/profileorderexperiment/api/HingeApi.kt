@@ -7,6 +7,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import timber.log.Timber
 
 interface HingeApi {
 
@@ -18,8 +19,11 @@ interface HingeApi {
         fun createApi(): HingeApi {
 
             INSTANCE?.let {
+                Timber.d("Returning existing api instance")
+
                 return it
             } ?: synchronized(this) {
+                Timber.d("Returning new api instance")
 
                 INSTANCE = Retrofit.Builder()
                     .baseUrl(BASE_URL)

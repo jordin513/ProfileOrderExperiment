@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.nidroj.profileorderexperiment.R
 import com.nidroj.profileorderexperiment.databinding.ActivityMatchDataBinding
 import com.nidroj.profileorderexperiment.ui.viewmodel.MatchesViewModel
+import timber.log.Timber
 import java.util.concurrent.TimeUnit
 
 class MatchDataActivity : AppCompatActivity() {
@@ -24,6 +25,7 @@ class MatchDataActivity : AppCompatActivity() {
         supportActionBar?.title = getString(R.string.match_data)
 
         matchesViewModel.getPhotoCount(this).observe(this, { count ->
+            Timber.d("Photo count : $count")
 
             count?.let {
                 //Sets the textview to number of matches that had images.
@@ -32,6 +34,7 @@ class MatchDataActivity : AppCompatActivity() {
         })
 
         matchesViewModel.getTopSchool(this).observe(this, { school ->
+            Timber.d("Top school : $school")
             school?.let {
                 /* Sets the textview to the most common school.
                 * NOTE: if there is more than one school with the highest count,
@@ -43,6 +46,7 @@ class MatchDataActivity : AppCompatActivity() {
         })
 
         matchesViewModel.getLongestInteractionTime(this).observe(this, { time ->
+            Timber.d("Longest engagement time : $time")
             time?.let {
 
                 // Gets the longest amount of time spent the user spent looking at a profile
@@ -62,6 +66,7 @@ class MatchDataActivity : AppCompatActivity() {
 
     //Shows textview stating there were no rows in the database.
     private fun noMatches() {
+        Timber.d("No matches")
         binding.noUsers.visibility = View.VISIBLE
         binding.data.visibility = View.GONE
     }
@@ -70,6 +75,7 @@ class MatchDataActivity : AppCompatActivity() {
     * the value will be "none".
     */
     private fun noTopSchool() {
+        Timber.d("No top school")
         binding.topSchool.text = getString(R.string.none)
     }
 }
