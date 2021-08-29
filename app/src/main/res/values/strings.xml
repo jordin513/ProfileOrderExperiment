@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">ProfileOrderExperiment</string>
+
+    <string name="name">name</string>
+    <string name="gender">gender</string>
+    <string name="photo">photo</string>
+    <string name="about">about</string>
+    <string name="school">school</string>
+    <string name="hobbies">hobbies</string>
+    <string name="there_are_no_more_users_to_show">There are no more users to show!</string>
+    <string name="there_are_no_matches">There are no matches</string>
+    <string name="see_data">See Data</string>
+    <string name="reset_data">Reset Data</string>
+    <string name="hinge">Hinge</string>
+    <string name="match_data">Match Data</string>
+    <string name="top_school">Top School:</string>
+    <string name="matches_with_images">Matches with images:</string>
+    <string name="none">none</string>
+
+</resources>

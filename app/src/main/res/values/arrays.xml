@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="default_config">
+        <item>@string/name</item>
+        <item>@string/photo</item>
+        <item>@string/gender</item>
+        <item>@string/about</item>
+        <item>@string/school</item>
+        <item>@string/hobbies</item>
+    </string-array>
+</resources>
