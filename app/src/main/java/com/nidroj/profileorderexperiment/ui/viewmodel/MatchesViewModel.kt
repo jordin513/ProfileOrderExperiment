@@ -25,4 +25,9 @@ class MatchesViewModel() : ViewModel() {
     fun getTopSchool(context: Context): LiveData<String?> {
         return UserRepository.getTopSchool(context)
     }
+
+    // Gets the longest amount of time spent the user spent looking at a profile
+    fun getLongestInteractionTime(context: Context): LiveData<Long?> {
+        return UserRepository.getLongestInteractionTime(context)
+    }
 }

@@ -20,4 +20,7 @@ interface MatchedUsersDao {
 
     @Query("SELECT school FROM matched_users GROUP BY school ORDER BY COUNT(school) DESC LIMIT 1")
     fun getTopSchool(): LiveData<String?>
+
+    @Query("SELECT profile_engagement_time FROM matched_users ORDER BY profile_engagement_time DESC LIMIT 1")
+    fun getLongestInteractionTime(): LiveData<Long?>
 }

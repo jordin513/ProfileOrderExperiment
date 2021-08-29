@@ -146,7 +146,7 @@ class MainActivity : AppCompatActivity() {
             binding.recyclerView.adapter = ProfileAdapter(this).apply { this.items = items }
 
             //set start time for user engagement
-            startProfileEngagement
+            startProfileEngagement = System.currentTimeMillis()
 
         } else {
             Timber.d("updateUser(): No user to show.")

@@ -83,5 +83,12 @@ class UserRepository(private val api: HingeApi) {
 
             return db.matchUserDao().getTopSchool()
         }
+
+        // Gets the longest amount of time spent the user spent looking at a profile
+        fun getLongestInteractionTime(context: Context): LiveData<Long?> {
+            db = initializeDB(context)
+
+            return db.matchUserDao().getLongestInteractionTime()
+        }
     }
 }

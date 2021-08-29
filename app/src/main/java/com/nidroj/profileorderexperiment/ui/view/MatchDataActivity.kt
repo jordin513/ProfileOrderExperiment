@@ -1,5 +1,6 @@
 package com.nidroj.profileorderexperiment.ui.view
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
@@ -7,17 +8,19 @@ import androidx.appcompat.app.AppCompatActivity
 import com.nidroj.profileorderexperiment.R
 import com.nidroj.profileorderexperiment.databinding.ActivityMatchDataBinding
 import com.nidroj.profileorderexperiment.ui.viewmodel.MatchesViewModel
+import java.util.concurrent.TimeUnit
 
 class MatchDataActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMatchDataBinding
     private val matchesViewModel = MatchesViewModel()
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMatchDataBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true);
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = getString(R.string.match_data)
 
         matchesViewModel.getPhotoCount(this).observe(this, { count ->
@@ -37,6 +40,14 @@ class MatchDataActivity : AppCompatActivity() {
 
                 binding.topSchool.text = school.toString()
             } ?: noTopSchool()
+        })
+
+        matchesViewModel.getLongestInteractionTime(this).observe(this, { time ->
+            time?.let {
+
+                // Gets the longest amount of time spent the user spent looking at a profile
+                binding.time.text = "${TimeUnit.MILLISECONDS.toSeconds(time)} seconds"
+            } ?: noMatches()
         })
     }
 
