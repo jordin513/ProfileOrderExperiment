@@ -14,7 +14,6 @@ import com.nidroj.profileorderexperiment.data.model.MatchedUser
 import com.nidroj.profileorderexperiment.data.model.User
 import com.nidroj.profileorderexperiment.databinding.ActivityMainBinding
 import com.nidroj.profileorderexperiment.ui.adapter.ProfileAdapter
-import com.nidroj.profileorderexperiment.ui.viewmodel.MatchesViewModel
 import com.nidroj.profileorderexperiment.ui.viewmodel.UsersViewModel
 import org.json.JSONArray
 import org.json.JSONException
@@ -28,7 +27,6 @@ class MainActivity : AppCompatActivity() {
     private var currentUser: User? = null
 
     private val hingeViewModel = UsersViewModel(UserRepository(HingeApi.createApi()))
-    private val matchesViewModel = MatchesViewModel()
     private val gson = Gson()
 
     //set a default value in case a there is an issue getting a response
@@ -82,7 +80,7 @@ class MainActivity : AppCompatActivity() {
             * wherever you wish (local server db, cloud database, etc.)*/
 
             val match = MatchedUser(currentUser!!, gson.toJson(config), profileEngagementTime)
-            matchesViewModel.insertMatch(this, match)
+            hingeViewModel.insertMatch(this, match)
 
             updateUser()
         }
@@ -104,7 +102,7 @@ class MainActivity : AppCompatActivity() {
         //Deletes all database data and resets users
         binding.resetData.setOnClickListener {
             binding.progressBar.visibility = View.VISIBLE
-            matchesViewModel.deleteAllMatches(this)
+            hingeViewModel.deleteAllMatches(this)
             hingeViewModel.callApi()
         }
     }

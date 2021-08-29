@@ -1,9 +1,11 @@
 package com.nidroj.profileorderexperiment.ui.viewmodel
 
+import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.nidroj.profileorderexperiment.data.UserRepository
+import com.nidroj.profileorderexperiment.data.model.MatchedUser
 import com.nidroj.profileorderexperiment.data.model.User
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -90,6 +92,17 @@ class UsersViewModel(private val userRepository: UserRepository) : ViewModel() {
             }
         }
     }
+
+    //inserts match into database
+    fun insertMatch(context: Context, match: MatchedUser) {
+        UserRepository.insertMatch(context, match)
+    }
+
+    //deletes all matches in database
+    fun deleteAllMatches(context: Context) {
+        UserRepository.deleteAllMatches(context)
+    }
+
 }
 
 

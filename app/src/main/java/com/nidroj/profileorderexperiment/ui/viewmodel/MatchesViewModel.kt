@@ -8,16 +8,6 @@ import com.nidroj.profileorderexperiment.data.model.MatchedUser
 
 class MatchesViewModel() : ViewModel() {
 
-    //inserts match into database
-    fun insertMatch(context: Context, match: MatchedUser) {
-        UserRepository.insertMatch(context, match)
-    }
-
-    //deletes all matches in database
-    fun deleteAllMatches(context: Context) {
-        UserRepository.deleteAllMatches(context)
-    }
-
     //gets all matches in database
     fun getMatches(context: Context): LiveData<List<MatchedUser>?> {
         return UserRepository.getMatches(context)
