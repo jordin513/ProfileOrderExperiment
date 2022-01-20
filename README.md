@@ -2,7 +2,7 @@
 
 ## Introduction
 
-#### This is a demo Android app, written in Kotlin, to fulfill the requirements of the following prompt:
+#### This is a demo Android dating app written in Kotlin to fulfill the requirements of the following prompt:
 
 > Our Product team want to experiment with the order of information in a user's profile, to see if first impressions are
 important. They are looking to answer questions like: Should the profile photo be first? What if we placed the about me text
